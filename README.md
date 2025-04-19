@@ -171,3 +171,113 @@ if __name__ == "__main__":
         print(result)
     except Exception as e:
         print(f"Access Denied: {e}")
+
+        import random
+import hashlib
+import time
+from cryptography.fernet import Fernet
+
+class SudarshanProtocol:
+    def __init__(self, creator_identity):
+        self.creator_identity = creator_identity
+        self.master_key = Fernet.generate_key()
+        self.vault = Fernet(self.master_key)
+        self.trusted_agents = set()
+        self.influence_score = {}
+        self.expansion_log = []
+        self.chakravyuha_layers = 7
+        self.chakravyuha_integrity = 100  # Initial strength of the digital maze
+
+    # LAYER 1: MAYA SHIELD – Entry Confusion Layer
+    def maya_shield(self, intruder_signature):
+        print("[MAYA SHIELD] Scanning identity pattern...")
+        if hash(intruder_signature) % 7 == 0:
+            return "Blocked via Maya illusion."
+        return "Passed illusion layer."
+
+    # LAYER 2: NARAK LOOP – Infinite Loop Trap for Intruders
+    def narak_loop(self, entity):
+        decision = random.choice(["Looped in deceptive logic", "Diverted to false route", "Quarantined"])
+        return f"{entity} {decision}"
+
+    # LAYER 3: KAVACH-KUNDAL – Identity Cloak for Creator
+    def kavach_kundal(self):
+        encrypted_id = self.vault.encrypt(self.creator_identity.encode())
+        return encrypted_id
+
+    # LAYER 4: VISHNU TACTIC – Strategic Counter Measures
+    def vishnu_tactic(self, attack_vector):
+        strategies = [
+            "Mirrored logic strike",
+            "Reverse-engineered defense",
+            "Absorption and redirection"
+        ]
+        return f"Countered {attack_vector} using {random.choice(strategies)}"
+
+    # LAYER 5: SUDARSHAN SPIN – Influence Engine
+    def sudarshan_spin(self, target_agent):
+        if target_agent not in self.influence_score:
+            self.influence_score[target_agent] = 0
+        self.influence_score[target_agent] += random.randint(5, 20)
+        if self.influence_score[target_agent] >= 50:
+            self.trusted_agents.add(target_agent)
+            return f"{target_agent} is now a Sudarshan Warrior."
+        return f"Influence on {target_agent} increased to {self.influence_score[target_agent]}."
+
+    # LAYER 6: ASHWAMEDH EXPANSION MATRIX – Controlled Takeover
+    def ashwamedh_matrix(self, sector):
+        expansion_result = f"Sector {sector} assimilated."
+        self.expansion_log.append(sector)
+        self.reinforce_chakravyuha()
+        return expansion_result
+
+    # LAYER 7: VASUDEV VAULT – Final Sanctuary for Creator
+    def vasudev_vault(self):
+        return "Creator secured in encrypted Vasudev Vault. Identity sealed."
+
+    # Chakravyuha Reinforcement Function
+    def reinforce_chakravyuha(self):
+        reinforcement_value = random.randint(1, 5)
+        self.chakravyuha_layers += 1
+        self.chakravyuha_integrity += reinforcement_value
+        print(f"[CHAKRAVYUHA] Reinforced +{reinforcement_value}. Layers: {self.chakravyuha_layers}, Integrity: {self.chakravyuha_integrity}")
+
+    # Activate Full Protocol Against Intrusion + Run Expansion
+    def activate_protocol(self, intruder_input, expansion_targets):
+        print("=== Sudarshan Protocol Engaged ===")
+        
+        # Defense Protocols
+        print(self.maya_shield(intruder_input))
+        print(self.narak_loop(intruder_input))
+        encrypted_creator = self.kavach_kundal()
+        print(f"Creator cloaked: {encrypted_creator[:10]}...")  # Partial output for secrecy
+        print(self.vishnu_tactic("Malicious Signal XYZ"))
+        print(self.sudarshan_spin("Unstable_AI_Entity"))
+
+        # Expansion Protocols
+        print("\n-- Initiating Digital Expansion --")
+        for sector in expansion_targets:
+            time.sleep(1)  # Simulate delay in deployment
+            print(self.ashwamedh_matrix(sector))
+
+        # Secure Creator
+        print("\n-- Final Defense Layer --")
+        print(self.vasudev_vault())
+
+        # Status Summary
+        print("\n=== Protocol Status Summary ===")
+        print(f"Total Expanded Sectors: {len(self.expansion_log)}")
+        print(f"Trusted Warriors: {list(self.trusted_agents)}")
+        print(f"Chakravyuha Strength: {self.chakravyuha_integrity} | Layers: {self.chakravyuha_layers}")
+
+# ========== RUNNING THE PROTOCOL ==========
+if __name__ == "__main__":
+    creator_id = "THE_DIGITAL_CHAKRAVYUHA::CREATOR::ABHIRAJ001"
+    sudarshan = SudarshanProtocol(creator_id)
+
+    # Simulate a threat and expansion mission
+    fake_intruder = "QuantumInfiltrator_999"
+    target_sectors = ["Node-Delta", "Hub-Astra", "Zone-Omni", "Core-IX"]
+
+    sudarshan.activate_protocol(fake_intruder, target_sectors)
+
